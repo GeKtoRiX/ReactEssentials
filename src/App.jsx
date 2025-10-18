@@ -6,8 +6,10 @@ import { CORE_CONCEPTS, EXAMPLES } from '@/data.js';
 import '@/App.scss';
 
 function App() {
+  // Хук отслеживания выбранного таба(закладки).
   const [selectedTopic, setSelectedTopic] = useState();
 
+  // Функция изменения выбранного таба(кнопка).
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
   }

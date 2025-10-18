@@ -1,9 +1,12 @@
 .root {
-  text-align: center;
+  // 48px
   margin: 3rem 0;
+  text-align: center;
 
   img {
+    // 80px
     height: 5rem;
+    //160px
     width: 10rem;
     object-fit: cover;
   }
@@ -13,7 +16,9 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 5rem;
     background: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff);
+    // Задний фон только в пикселях текста.
     -webkit-background-clip: text;
+    // Базовое заполнение текста - прозрачное.
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
   }

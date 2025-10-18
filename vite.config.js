@@ -96,5 +96,8 @@ export default defineConfig(({ mode }) => {
         target: 'esnext',
       },
     },
+    esbuild: {
+      legalComments: 'none',
+    },
   };
 });

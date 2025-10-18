@@ -5,62 +5,82 @@
 }
 
 html {
+  // 1280px
+  min-height: 80rem;
   font-family: 'Quicksand', sans-serif;
   line-height: 1.5;
-
+  // Запрещает браузеру самостоятельно “дорисовывать” отсутствующие варианты шрифта.
+  /* 
+  По умолчанию: браузеры могут синтетически создать курсив или жирный вариант, если их нет в загруженном шрифте.
+  Шрифт отображается только в тех стилях, которые реально загружены (regular, bold, italic, bold italic и т. д.)
+  */
+  font-synthesis: none;
+  // Говорит браузеру использовать улучшенные алгоритмы рендеринга текста для повышения читабельности.
+  /* 
+  Включает “лигатуры” (например, в шрифтах буквы fi, fl, ff могут слепляться в более красивые связки).
+  Улучшает кернинг(расстояния между буквами).
+  Сглаживает края текста более качественно.
+  */
+  text-rendering: optimizeLegibility;
+  // Специфическое свойство WebKit(Chrome, Safari, Opera), задаёт как именно браузер сглаживает края текста(anti-aliasing = сглаживание).
+  /* 
+  Antialiased заставляет браузер использовать grayscale-антиалиасинг:
+    Убирает цветные “ореолы” вокруг букв(subpixel rendering).
+    Делает текст чуть тоньше, более “резким”.
+    Особенно полезно для тёмного текста на светлом фоне.
+  */
+  -webkit-font-smoothing: antialiased;
+  // Аналогично предыдущему, но для Firefox на macOS.
+  /* 
+  macOS по умолчанию использует цветное(subpixel) сглаживание, которое иногда делает текст чересчур жирным или “размытым”.
+  */
+  -moz-osx-font-smoothing: grayscale;
+  // Отключает автоматическое изменение размера текста браузером (особенно на мобильных устройствах).
+  -webkit-text-size-adjust: 100%;
   color: #ebe7ef;
   background: radial-gradient(#280a48, #20043d);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  min-height: 80rem;
 }
 
 main {
   width: 90%;
+  // 800px
   max-width: 50rem;
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
+}
+main h2 {
+  // 24px
+  margin: 0 0 1.5rem 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #a18aba;
 }
 
 #core-concepts {
-  padding: 2rem;
   border-radius: 6px;
+  // 32px
+  padding: 2rem;
   background-color: #140524;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 #core-concepts ul {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  list-style: none;
 }
-
 #core-concepts li {
   width: 10rem;
-}
-
-main h2 {
-  text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
-  margin: 0 0 1.5rem 0;
-  color: #a18aba;
 }
 
 #examples {
   margin: 3rem auto;
 }
-
 #examples h2 {
   text-align: left;
 }
-
 #examples menu {
   margin: 1rem 0;
   padding: 0;
@@ -68,40 +88,36 @@ main h2 {
   gap: 0.5rem;
   list-style: none;
 }
-
 #examples menu button {
-  padding: 0.5rem 1rem;
   border: none;
   border-radius: 6px;
-  background-color: transparent;
-  color: #a18aba;
+  padding: 0.5rem 1rem;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1rem;
-  cursor: pointer;
+  color: #a18aba;
+  background-color: transparent;
+  //ease-in-out -  медленно начинается и заканчивается.
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
-
 #examples menu button:hover {
+  color: #ebe7ef;
   background-color: #1b082f;
-  color: #ebe7ef;
 }
-
 #examples menu button.active {
-  background-color: #7925d3;
   color: #ebe7ef;
+  background-color: #7925d3;
 }
 
 #tab-content {
-  padding: 1rem;
   border-radius: 6px;
+  padding: 1rem;
   background-color: #2f1d43;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-
 #tab-content h3 {
   margin: 0;
 }
-
 #tab-content code {
   font-size: 1rem;
 }
